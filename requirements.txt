@@ -1,0 +1,10 @@
+--find-links https://download.pytorch.org/whl/cpu
+jinja2
+numpy
+opencv-python
+pre-commit
+torch
+torchaudio
+torchvision
+typeguard
+ultralytics
