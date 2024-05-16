@@ -1,5 +1,6 @@
 import os
 import cv2
+import random
 import numpy as np
 from ultralytics import YOLO
 from deep_sort.tracker import Tracker
@@ -16,6 +17,17 @@ model = YOLO("yolov8s.pt")
 
 # Initialize Track object
 people_tracker = Tracker()
+
+# Define bounding boxes coloros
+bbox_colors = []
+
+for i in range(25):
+
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+
+    bbox_colors.append([r, g, b])
 
 # Read video
 if video_cap.isOpened():
@@ -58,6 +70,20 @@ if video_cap.isOpened():
 
                 # Update bounding boxes parameters per frame
                 people_tracker.update(frame, person_bboxes)
+
+                # Track bounding boxes
+                for track in people_tracker.tracks:
+
+                    bbox = track.bbox
+                    track_id = track.track_id
+
+                    # Display bounding boxes
+                    bbox_size = 2
+                    x1y1 = (int(bbox[0]), int(bbox[1]))
+                    x2y2 = (int(bbox[2]), int(bbox[3]))
+                    color = bbox_colors[random.randint(0, 9)]
+
+                    cv2.rectangle(frame, x1y1, x2y2, color, bbox_size)
 
         # Press 'q' on keyboard to  exit
         if cv2.waitKey(25) & 0xFF == ord("q"):
