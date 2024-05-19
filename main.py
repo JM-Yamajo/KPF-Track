@@ -58,32 +58,24 @@ if video_cap.isOpened():
                 class_id = int(class_id)
 
                 # Save bounding boxes parameters
-                person_bboxes.append(
-                    [
-                        x1,
-                        y1,
-                        x2,
-                        y2,
-                        score,
-                    ]
-                )
+                person_bboxes.append([x1, y1, x2, y2, score])
 
-                # Update bounding boxes parameters per frame
-                people_tracker.update(frame, person_bboxes)
+            # Update bounding boxes parameters per frame
+            people_tracker.update(frame, person_bboxes)
 
-                # Track bounding boxes
-                for track in people_tracker.tracks:
+            # Track bounding boxes
+            for track in people_tracker.tracks:
 
-                    bbox = track.bbox
-                    track_id = track.track_id
+                bbox = track.bbox
+                track_id = track.track_id
 
-                    # Display bounding boxes
-                    bbox_size = 2
-                    x1y1 = (int(bbox[0]), int(bbox[1]))
-                    x2y2 = (int(bbox[2]), int(bbox[3]))
-                    color = bbox_colors[random.randint(0, 9)]
+                # Display bounding boxes
+                bbox_size = 2
+                x1y1 = (int(bbox[0]), int(bbox[1]))
+                x2y2 = (int(bbox[2]), int(bbox[3]))
+                color = bbox_colors[random.randint(0, 9)]
 
-                    cv2.rectangle(frame, x1y1, x2y2, color, bbox_size)
+                cv2.rectangle(frame, x1y1, x2y2, color, bbox_size)
 
         # Press 'q' on keyboard to  exit
         if cv2.waitKey(25) & 0xFF == ord("q"):
