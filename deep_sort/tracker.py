@@ -1,9 +1,9 @@
 from __future__ import absolute_import
 import numpy as np
-from . import kalman_filter
-from . import linear_assignment
-from . import iou_matching
-from .track import Track
+from deep_sort import kalman_filter
+from deep_sort import linear_assignment
+from deep_sort import iou_matching
+from deep_sort.track import Track
 
 
 class Tracker:
@@ -36,7 +36,7 @@ class Tracker:
 
     """
 
-    def __init__(self, metric, max_iou_distance=0.7, max_age=30, n_init=3):
+    def __init__(self, metric, max_iou_distance=0.7, max_age=50, n_init=3):
         self.metric = metric
         self.max_iou_distance = max_iou_distance
         self.max_age = max_age
@@ -54,7 +54,7 @@ class Tracker:
         for track in self.tracks:
             track.predict(self.kf)
 
-    def update(self, detections):
+    def update(self, frame, detections):
         """Perform measurement update and track management.
 
         Parameters
