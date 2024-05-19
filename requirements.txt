@@ -3,6 +3,7 @@ jinja2
 numpy
 opencv-python
 pre-commit
+scikit-learn
 torch
 torchaudio
 torchvision
