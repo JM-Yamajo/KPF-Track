@@ -1,9 +1,10 @@
 --find-links https://download.pytorch.org/whl/cpu
 jinja2
-numpy
+numpy==1.17.2
 opencv-python
 pre-commit
 scikit-learn
+tensorflow
 torch
 torchaudio
 torchvision
