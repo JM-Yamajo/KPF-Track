@@ -52,8 +52,6 @@ This project aims to implement real-time tracking of individuals throughout a vi
 - **`deep_sort/`**: Contains the Deep SORT implementation, including the tracking algorithm and associated metrics for identity association.
 
 ### Usage
-
-- **Play/Pause Video Tracking:** Control video playback while tracking to analyze different sections.
 - **Export Tracking Data:** Save tracking results, including bounding boxes and tracking IDs, for further analysis.
 
 ### Contributions
