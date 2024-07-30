@@ -1,7 +1,5 @@
 # Real-Time Person Tracking
 
-## Overview
-
 This project aims to implement real-time tracking of individuals throughout a video using advanced computer vision techniques. It leverages the Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) algorithm for robust and efficient tracking. The project uses the [Deep SORT repository](https://github.com/nwojke/deep_sort) as a foundational base to track and identify people across frames in a video stream.
 
 ## Key Features
