@@ -44,8 +44,7 @@ This project aims to implement real-time tracking of individuals throughout a vi
     Execute the tracking script to start processing the video and obtain real-time tracking results:
 
     ```bash
-    Copy code
-    python track.py --video your_video_file.mp4
+    python3 track.py --video your_video_file.mp4
 
 ### Scripts Description
 
